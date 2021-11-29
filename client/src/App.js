@@ -11,7 +11,7 @@ function App() {
   const [user, setUser] = useState(null)
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-
+  
   useEffect(() => {
     // auto-login if session[:user_id]
     fetch("/me").then((r) => {
@@ -22,7 +22,7 @@ function App() {
   }, []);
 
   return (
-    <main>
+    <>
       <Header/>
       <Routes>
         <Route path="/" element={<Home user={user} setUser={setUser}/>}/>
@@ -41,7 +41,7 @@ function App() {
           setPassword={setPassword}/>}/>
         <Route path="/group" element={user ? <Group user={user}/>: <Unauthorized/>}/>
       </Routes>
-    </main>
+    </>
   );
 }
 

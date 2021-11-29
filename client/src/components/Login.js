@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import styled, { css } from "styled-components";
+import React from "react";
+import styled from "styled-components";
 import UsernameBox from "./UsernameBox";
 import PasswordBox from "./PasswordBox.js";
 import { useNavigate } from "react-router-dom";
@@ -58,14 +58,6 @@ const Container = styled.div`
   justify-content: center;
 `;
 
-const ButtonOverlay = styled.button`
- display: block;
- background: none;
- height: 100%;
- width: 100%;
- border:none
- `;
- 
 const LoginForm = styled.form`
   height: 150px;
   background-color: rgba(188,55,55,1);
