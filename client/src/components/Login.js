@@ -5,6 +5,7 @@ import PasswordBox from "./PasswordBox.js";
 import { useNavigate } from "react-router-dom";
 import Button from "../styles/Button"
 import { Link } from "react-router-dom";
+import ButtonContainer from "./ButtonContainer";
 
 
 function Login({setUser, username, setUsername, password, setPassword}) {
@@ -38,7 +39,6 @@ function Login({setUser, username, setUsername, password, setPassword}) {
             width: 364,
             marginLeft: 6
           }}
-          Username="Username"
         ></UsernameBox>
         <PasswordBox password={password} setPassword={setPassword}
           style={{
@@ -48,8 +48,10 @@ function Login({setUser, username, setUsername, password, setPassword}) {
             marginLeft: 6
           }}
         ></PasswordBox>
-        <Button type="submit">Login</Button>
-        <Link to="/signup"><Button type="button">New User</Button></Link>
+        <ButtonContainer>
+          <Link to="/signup"><Button type="button">New User</Button></Link>
+          <Button type="submit">Login</Button>
+        </ButtonContainer>
       </LoginForm>
     </>
   );

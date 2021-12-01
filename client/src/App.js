@@ -7,6 +7,7 @@ import Signup from './components/Signup'
 import Group from './components/Group'
 import Unauthorized from "./components/Unauthorized";
 import Header from "./styles/Header";
+import History from "./components/History";
 
 function App() {
   const [user, setUser] = useState(null)
@@ -47,6 +48,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home user={user} setUser={setUser}/>}/>
         <Route path="/group" element={<Group user={user}/>}/>
+        <Route path="/history" element={<History user={user}/>}/>
       </Routes>
     </Container>
   );

@@ -12,6 +12,9 @@ export default function Group({user}){
 
     function createGroup(e){
         e.preventDefault()
+        if (!location) {
+            alert("Please enter a location")
+        } else {
         const data = {location: location, cuisine: cuisine, groupMembers: members}
         fetch("/groupandvote", {
             method: "POST",
@@ -20,7 +23,8 @@ export default function Group({user}){
         })
         .then(r=> r.json())
         .then(rest => setRestaurants(rest))
-    }
+    }}
+    
     function invite(friend, e){
         if (!e.target.checked) {
             setMembers((prevMember) => prevMember.filter(member => member !== friend))
