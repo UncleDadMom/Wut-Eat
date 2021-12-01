@@ -1,26 +1,25 @@
 import {useState} from 'react'
 import styled from "styled-components";
-
-import FriendsList from "./FriendsList"
+import RestaurantVote from './RestaurantVote';
+import Button from "../styles/Button"
+import Friends from './Friends';
 
 export default function Group({user}){
     const [location, setLocation] = useState("")
     const [cuisine, setCuisine] = useState("")
     const [members, setMembers] = useState([user])
-    
+    const [restaurants, setRestaurants] = useState([])
+
     function createGroup(e){
         e.preventDefault()
-        fetch("/invite", {
+        const data = {location: location, cuisine: cuisine, groupMembers: members}
+        fetch("/groupandvote", {
             method: "POST",
             headers: { "Content-Type": "application/json"},
-            body: JSON.stringify({
-                location: location,
-                cuisine: cuisine,
-                groupMembers: members
-            })
+            body: JSON.stringify(data)
         })
         .then(r=> r.json())
-        .then(console.log)
+        .then(rest => setRestaurants(rest))
     }
     function invite(friend, e){
         if (!e.target.checked) {
@@ -32,8 +31,9 @@ export default function Group({user}){
         }
     }
 
-    return(
-        <Container>
+    if (!restaurants.length) {
+        return(
+        <>
             <FormHead>Where are you and who are you eating with?</FormHead>
             <GroupForm onSubmit={createGroup}>
                 <label htmlFor="location">Address</label>
@@ -46,11 +46,17 @@ export default function Group({user}){
                     value={cuisine}
                     placeholder="Optional"
                     onChange={(e)=>setCuisine(e.target.value)}/>
-                <FriendsList invite={invite}/>
-                <button>Create Group</button>
+                <Button type="submit">Create Group</Button>
             </GroupForm>
-        </Container>
-    )
+            <Friends invite={invite}/>
+        </>
+    )} else {
+        return(
+            <>
+                <RestaurantVote restaurants={restaurants}><p>child</p></RestaurantVote>
+            </>
+        )
+    }
 }
 
 const FormHead = styled.span`
@@ -58,14 +64,9 @@ const FormHead = styled.span`
   font-style: normal;
   font-weight: 700;
   color: rgba(0,0,0,1);
-  font-size: 30px;
+  font-size: 25px;
   text-align: center;
   `
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-`;
 const GroupForm = styled.form`
   height: 150px;
   background-color: rgba(188,55,55,1);

@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
-  get '/restaurants', to: 'yelp#search'
   post "/signup", to: "users#create"
+  get "/search/:q", to: "users#addFriend"
   post "/login", to: "sessions#create"
   delete "logout", to: "sessions#destroy"
   get "/me", to: "users#me"
   get "/friends", to: "users#friends"
-  post "/invite", to: "groups#create"
+  post "/groupandvote", to: "groups#getNearbyRestaurants"
 
   # Routing logic: fallback requests for React Router.
   # Leave this here to help deploy your app later!

@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom"
 import UsernameBox from "./UsernameBox";
 import PasswordBox from "./PasswordBox";
 import ConfirmPassword from "./ConfirmPassword";
+import Button from "../styles/Button"
+import Header from "../styles/Header";
 
 export default function Signup({setUser, username, setUsername, password, setPassword}){
     const [passwordConfirmation, setPasswordConfirmation] = useState("");
@@ -34,8 +36,7 @@ export default function Signup({setUser, username, setUsername, password, setPas
 
     return(
         <>
-            <CreateANewUser>Create a New User</CreateANewUser>
-        <Container>
+            <Header>Create a New User</Header>
             <SignupForm onSubmit={handleSubmit}>
                 <UsernameBox username={username} setUsername={setUsername}
                     style={{
@@ -62,24 +63,10 @@ export default function Signup({setUser, username, setUsername, password, setPas
                 </ConfirmPassword>
                 <Button type="submit">Sign Up</Button>
             </SignupForm>
-        </Container>
         </>
+      
     )
 }
-
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-`;
-const CreateANewUser = styled.span`
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: 700;
-  color: #121212;
-  font-size: 36px;
-  
-`;
 
 const SignupForm = styled.form`
   height: 200px;
@@ -91,13 +78,4 @@ const SignupForm = styled.form`
   display: flex;
   align-self: center;
   border-style: solid;
-`;
-const Button = styled.button`
-  width: 112px;
-  height: 25px;
-  background-color: #E6E6E6;
-  flex-direction: column;
-  display: flex;
-  margin-left: 258px;
-  border: none;
 `;

@@ -1,19 +1,21 @@
-import {useEffect, useState} from 'react'
+import styled from "styled-components";
 
-export default function FriendsList({invite}){
-    const [friends, setFriends] = useState([])
-
-    useEffect(() => {
-        fetch("/friends")
-        .then(r=> r.json())
-        .then(f=>setFriends(f))
-    },[])
+export default function FriendsList({invite, friends}){
 
     return(
-        <ul>
-            {friends.map((friend, index) => <li key={index}>{friend.username}
+        <> 
+         <h3>Friends list:</h3>
+          <List>
+            {friends?.map((friend, index) => <li key={index}>{friend.username}
                  <input type="checkbox" key={index} id={friend.id} onClick={(e) => invite(friend, e)}/>
                 </li>)}
-        </ul>
+          </List>
+        </>
     )
 }
+
+const List = styled.ul`
+background-color: rgba(188,55,55,1);
+width: 100%
+border-color: rgba(0,0,0,1);
+`
