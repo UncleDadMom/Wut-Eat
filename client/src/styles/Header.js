@@ -7,6 +7,7 @@ const Header = styled.span`
   color: rgba(0,0,0,1);
   font-size: 34px;
   text-align: center;
+  border: solid;
 `;
 
 

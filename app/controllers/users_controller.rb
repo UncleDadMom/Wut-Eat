@@ -2,7 +2,8 @@ class UsersController < ApplicationController
   before_action :current_user, except: [:create]
 
     def create #/signup
-        user = User.create(user_params)
+      puts "Attemping to create user"
+      user = User.create(user_params)
         if user.valid?
           render json: user, status: :created
           session[:user_id] = user.id

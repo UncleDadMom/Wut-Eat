@@ -1,15 +1,16 @@
 import React from "react";
 import styled from "styled-components";
+import Input from "../styles/Input";
 
 function PasswordBox({password, setPassword}) {
   return (
     <Container>
         <PasswordLabel>Password</PasswordLabel>
-        <PasswordInput 
+        <Input 
         placeholder="Enter password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
-        ></PasswordInput>
+        ></Input>
     </Container>
   );
 }
@@ -32,26 +33,6 @@ const PasswordLabel = styled.label`
   background: transparent;
 `;
 
-const PasswordInput = styled.input`
-  font-family: Roboto;
-  color: #000;
-  font-size: 14px;
-  flex: 1 1 0%;
-  line-height: 16px;
-  font-style: italic;
-  font-weight: ;
-  opacity: 0.6;
-  border-width: 1px;
-  border-color: #000000;
-  left: 0px;
-  height: 27px;
-  bottom: 0px;
-  background-color: rgba(230, 230, 230,1);
-  right: 0px;
-  border-style: solid;
-  background: transparent;
-  display: flex;
-  flex-direction: column;
-`;
+
 
 export default PasswordBox;

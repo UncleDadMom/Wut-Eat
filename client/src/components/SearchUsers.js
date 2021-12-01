@@ -1,5 +1,7 @@
 import {useState} from 'react'
 import Button from '../styles/Button'
+import styled from "styled-components"
+import Input from '../styles/Input'
 
 export default function SearchUsers({setFriends}){
     const [search, setSearch] = useState("")
@@ -21,15 +23,24 @@ export default function SearchUsers({setFriends}){
     )}
     
     return(
-        <form onSubmit={handleSubmit}>
-            <input 
-                style={BarStyling}
+        <FormStyle id="search" onSubmit={handleSubmit}>
+            <Input 
                 value={search}
                 placeholder={"Enter friend's username"}
                 onChange={(e) => setSearch(e.target.value)}
             />
             <Button type="submit">Add Friend</Button>
-        </form>
+        </FormStyle>
     )
 }
-const BarStyling = {width:"20rem",background:"#F2F1F9", border:"none", padding:"0.5rem"}
+const FormStyle = styled.form`
+    display: flex;
+    height: 100%;
+    width: 100%;
+    align-self: center;
+    border-style: solid;
+    flex-direction: column;
+    background-color: rgba(188,55,55,1);
+    border-width: 1px;
+    border-color: rgba(0,0,0,1);
+`

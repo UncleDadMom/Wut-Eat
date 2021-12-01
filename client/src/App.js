@@ -43,7 +43,7 @@ function App() {
   )
 
   return (
-    <Container>
+    <Container id="app-container">
       <Header>Wut Eat?</Header>
       <Routes>
         <Route path="/" element={<Home user={user} setUser={setUser}/>}/>
@@ -60,4 +60,5 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  border-style: solid;
 `;

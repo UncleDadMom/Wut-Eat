@@ -1,15 +1,16 @@
 import React from "react";
 import styled from "styled-components";
+import Input from "../styles/Input";
 
 function UsernameBox({username, setUsername}) {
   return (
     <Container >
       <UsernameLabel>Username</UsernameLabel>
-      <UsernameInput
+      <Input
         placeholder="Enter Username"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
-        ></UsernameInput>
+        ></Input>
     </Container>
   );
 }
@@ -30,26 +31,6 @@ const UsernameLabel = styled.label`
   font-weight: 700;
   border: none;
   background: transparent;
-`;
-
-const UsernameInput = styled.input`
-  font-family: Roboto;
-  color: #000;
-  font-size: 14px;
-  flex: 1 1 0%;
-  line-height: 16px;
-  height: 29px;
-  font-style: italic;
-  font-weight: ;
-  opacity: 0.6;
-  border-width: 1px;
-  border-color: #000000;
-  background-color: rgba(230, 230, 230,1);
-  margin-top: 1px;
-  border-style: solid;
-  background: transparent;
-  display: flex;
-  flex-direction: column;
 `;
 
 export default UsernameBox;

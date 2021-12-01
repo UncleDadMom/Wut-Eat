@@ -10,5 +10,5 @@ export default function ButtonContainer(props){
 
 const Container = styled.div`
 display: flex;
-justify-content: space-evenly;
+justify-content: space-between;
 `

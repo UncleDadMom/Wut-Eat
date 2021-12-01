@@ -3,6 +3,7 @@ import styled from "styled-components";
 import RestaurantVote from './RestaurantVote';
 import Button from "../styles/Button"
 import Friends from './Friends';
+import Input from '../styles/Input';
 
 export default function Group({user}){
     const [location, setLocation] = useState("")
@@ -41,12 +42,12 @@ export default function Group({user}){
             <FormHead>Where are you and who are you eating with?</FormHead>
             <GroupForm onSubmit={createGroup}>
                 <label htmlFor="location">Address</label>
-                <input id="location" type="text" 
+                <Input id="location" type="text" 
                     value={location}
                     placeholder="Required"
                     onChange={(e)=>setLocation(e.target.value)}/>
                 <label htmlFor="cuisine">Cuisine* </label>
-                <input id="cuisine" type="text"
+                <Input id="cuisine" type="text"
                     value={cuisine}
                     placeholder="Optional"
                     onChange={(e)=>setCuisine(e.target.value)}/>
@@ -70,9 +71,10 @@ const FormHead = styled.span`
   color: rgba(0,0,0,1);
   font-size: 25px;
   text-align: center;
+  border: double;
   `
 const GroupForm = styled.form`
-  height: 150px;
+  height: 100%;
   background-color: rgba(188,55,55,1);
   border-width: 1px;
   border-color: rgba(0,0,0,1);
