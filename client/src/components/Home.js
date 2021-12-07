@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import Button from "../styles/Button"
 import Header from "../styles/Header";
-import styled from "styled-components"
+// import styled from "styled-components"
 import ButtonContainer from "./ButtonContainer";
 
 export default function Home({ user, setUser}){

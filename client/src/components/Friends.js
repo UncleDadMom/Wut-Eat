@@ -1,7 +1,7 @@
 import FriendsList from "./FriendsList";
 import SearchUsers from "./SearchUsers";
 import {useEffect, useState} from 'react'
-import ButtonContainer from "./ButtonContainer";
+// import ButtonContainer from "./ButtonContainer";
 
 export default function Friends({invite}){
     const [friends, setFriends] = useState([])

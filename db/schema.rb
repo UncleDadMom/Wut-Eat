@@ -10,16 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_29_212648) do
+ActiveRecord::Schema.define(version: 2021_12_03_214559) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "chosen_restaurants", force: :cascade do |t|
-    t.bigint "group_id", null: false
-    t.integer "api_id"
-    t.index ["group_id"], name: "index_chosen_restaurants_on_group_id"
-  end
 
   create_table "friendships", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -33,6 +27,15 @@ ActiveRecord::Schema.define(version: 2021_11_29_212648) do
   create_table "groups", force: :cascade do |t|
     t.string "location"
     t.string "cuisine"
+  end
+
+  create_table "nearby_restaurants", force: :cascade do |t|
+    t.integer "group_id"
+    t.string "yelp_id"
+    t.string "name"
+    t.jsonb "categories"
+    t.string "image"
+    t.boolean "winner", default: false
   end
 
   create_table "user_groups", force: :cascade do |t|
@@ -49,7 +52,12 @@ ActiveRecord::Schema.define(version: 2021_11_29_212648) do
     t.string "password_digest"
   end
 
-  add_foreign_key "chosen_restaurants", "groups"
+  create_table "votes", force: :cascade do |t|
+    t.integer "nearby_restaurant_id"
+    t.boolean "accept"
+    t.integer "user_group_id"
+  end
+
   add_foreign_key "friendships", "users"
   add_foreign_key "friendships", "users", column: "friend_id"
   add_foreign_key "user_groups", "groups"

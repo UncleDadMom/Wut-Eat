@@ -46,6 +46,31 @@ class UsersController < ApplicationController
       end
     end
 
+
+    def vote
+      puts "Vote received"
+      @ug ||= UserGroup.find_by(user_id: @current_user.id, group_id: session[:group_id])
+      restaurant = NearbyRestaurant.find(params[:rest_id])
+      if params[:votes_left]
+        Vote.create!(accept: params[:accept], user_group_id: @ug.id, nearby_restaurant_id: restaurant.id)
+        puts "Vote created"
+      end
+      if restaurant.votes.length == session[:groupsize] && restaurant.votes.filter{|vote| !vote[:accept]}.empty? #winning condition
+        restaurant.update(winner: true)
+        byebug
+        session.delete :groupsize
+        session.delete :group_id
+        return render json: restaurant, status: :accepted
+      end
+      byebug
+      render json: restaurant.votes
+    end
+
+    def history
+      winners = @current_user.nearby_restaurants.where winner: true
+      render json: winners
+    end
+
     private
 
     def user_params

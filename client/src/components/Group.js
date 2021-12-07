@@ -17,7 +17,7 @@ export default function Group({user}){
             alert("Please enter a location")
         } else {
         const data = {location: location, cuisine: cuisine, groupMembers: members}
-        fetch("/groupandvote", {
+        fetch("/findNearbyRestaurants", {
             method: "POST",
             headers: { "Content-Type": "application/json"},
             body: JSON.stringify(data)
@@ -58,7 +58,7 @@ export default function Group({user}){
     )} else {
         return(
             <>
-                <RestaurantVote restaurants={restaurants}><p>child</p></RestaurantVote>
+                <RestaurantVote restaurants={restaurants}/>
             </>
         )
     }

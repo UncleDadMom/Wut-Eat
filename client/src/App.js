@@ -5,7 +5,6 @@ import styled from "styled-components";
 import { Routes, Route } from "react-router-dom";
 import Signup from './components/Signup'
 import Group from './components/Group'
-import Unauthorized from "./components/Unauthorized";
 import Header from "./styles/Header";
 import History from "./components/History";
 
@@ -61,4 +60,5 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   border-style: solid;
+  height: 100%;
 `;

@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   delete "logout", to: "sessions#destroy"
   get "/me", to: "users#me"
   get "/friends", to: "users#friends"
-  post "/groupandvote", to: "groups#getNearbyRestaurants"
+  post "/findNearbyRestaurants", to: "groups#getNearbyRestaurants"
+  post "/vote", to: "users#vote"
+  get "/history", to: "users#history"
 
   # Routing logic: fallback requests for React Router.
   # Leave this here to help deploy your app later!

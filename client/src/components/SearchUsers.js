@@ -5,7 +5,7 @@ import Input from '../styles/Input'
 
 export default function SearchUsers({setFriends}){
     const [search, setSearch] = useState("")
-    const [foundUsers, setFoundUsers] = useState([])
+    // const [foundUsers, setFoundUsers] = useState([])
 
     function handleSubmit(e){
         e.preventDefault()
@@ -15,7 +15,7 @@ export default function SearchUsers({setFriends}){
         fetch(`/search/${search}`).then(r => {
             if (r.ok) {
                 r.json().then(user => {
-                    setFoundUsers(user)
+                    // setFoundUsers(user)
                     setFriends((prevMember) => [...prevMember, user])
                     alert(`Sent ${user.username} a friend request!`)})}
             else {r.json().then(err=> alert(err.error))}
