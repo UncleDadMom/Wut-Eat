@@ -47,7 +47,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home user={user} setUser={setUser}/>}/>
         <Route path="/group" element={<Group user={user}/>}/>
-        <Route path="/history" element={<History user={user}/>}/>
+        <Route path="/history" element={<History/>}/>
       </Routes>
     </Container>
   );
