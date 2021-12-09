@@ -13,7 +13,6 @@ class GroupsController < ApplicationController
         @restaurants = results["businesses"].map{|rest| NearbyRestaurant.create!(image: rest["image_url"], yelp_id: rest["id"], name: rest["name"], categories: rest["categories"], group_id: @g.id)}
         session[:groupsize] = params[:groupMembers].length
         session[:group_id] = @g.id
-        # byebug
         render :json => @restaurants
     end
 

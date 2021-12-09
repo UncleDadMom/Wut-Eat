@@ -1,7 +1,6 @@
 import FriendsList from "./FriendsList";
 import SearchUsers from "./SearchUsers";
 import {useEffect, useState} from 'react'
-// import ButtonContainer from "./ButtonContainer";
 
 export default function Friends({invite}){
     const [friends, setFriends] = useState([])
@@ -13,10 +12,9 @@ export default function Friends({invite}){
     },[])
 
     return(
-        <div id="friends" style={Styles}>
+        <div id="friends">
             <SearchUsers setFriends={setFriends}/>
             <FriendsList friends={friends} invite={invite}></FriendsList>
         </div>
     )
 }
-const Styles = { width: "475px", display: "flex", alignSelf: "center", flexDirection: "column"}

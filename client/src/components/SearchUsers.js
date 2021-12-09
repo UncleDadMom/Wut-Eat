@@ -40,7 +40,7 @@ const FormStyle = styled.form`
     align-self: center;
     border-style: solid;
     flex-direction: column;
-    background-color: rgba(188,55,55,1);
     border-width: 1px;
+    background-color: #6B0000;
     border-color: rgba(0,0,0,1);
 `

@@ -10,7 +10,6 @@ const Input = styled.input`
   flex: 1 1 0%;
   line-height: 16px;
   font-style: italic;
-  font-weight: ;
   opacity: 0.6;
   border-width: 1px;
   border-color: #000000;

@@ -1,12 +1,11 @@
 import React from "react";
-import styled from "styled-components";
 import UsernameBox from "./UsernameBox";
 import PasswordBox from "./PasswordBox.js";
 import { useNavigate } from "react-router-dom";
 import Button from "../styles/Button"
 import { Link } from "react-router-dom";
 import ButtonContainer from "./ButtonContainer";
-
+import LandingForm from "../styles/LandingForm";
 
 function Login({setUser, username, setUsername, password, setPassword}) {
     let navigate = useNavigate();
@@ -30,7 +29,7 @@ function Login({setUser, username, setUsername, password, setPassword}) {
 
   return (
     <>
-      <LoginForm onSubmit={login}>
+      <LandingForm onSubmit={login}>
         <UsernameBox username={username} setUsername={setUsername}
           inputStyle="Input"
           textInput="Username"
@@ -52,22 +51,11 @@ function Login({setUser, username, setUsername, password, setPassword}) {
           <Link to="/signup"><Button type="button">New User</Button></Link>
           <Button type="submit">Login</Button>
         </ButtonContainer>
-      </LoginForm>
+      </LandingForm>
     </>
   );
 }
 
-const LoginForm = styled.form`
-  height: 150px;
-  background-color: rgba(188,55,55,1);
-  border-width: 1px;
-  border-color: rgba(0,0,0,1);
-  width: 375px;
-  flex-direction: column;
-  display: flex;
-  align-self: center;
-  border-style: solid;
-`;
 
 
 export default Login;

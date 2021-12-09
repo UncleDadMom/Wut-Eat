@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import styled from "styled-components";
 import { useNavigate } from "react-router-dom"
 import UsernameBox from "./UsernameBox";
 import PasswordBox from "./PasswordBox";
 import ConfirmPassword from "./ConfirmPassword";
 import Button from "../styles/Button"
 import Header from "../styles/Header";
+import LandingForm from "../styles/LandingForm";
 
 export default function Signup({setUser, username, setUsername, password, setPassword}){
     const [passwordConfirmation, setPasswordConfirmation] = useState("");
@@ -37,7 +37,7 @@ export default function Signup({setUser, username, setUsername, password, setPas
     return(
         <>
             <Header>Create a New User</Header>
-            <SignupForm onSubmit={handleSubmit}>
+            <LandingForm onSubmit={handleSubmit}>
                 <UsernameBox username={username} setUsername={setUsername}
                     style={{
                     width: 375,
@@ -62,20 +62,9 @@ export default function Signup({setUser, username, setUsername, password, setPas
                     }}>
                 </ConfirmPassword>
                 <Button type="submit">Sign Up</Button>
-            </SignupForm>
+            </LandingForm>
         </>
       
     )
 }
 
-const SignupForm = styled.form`
-  height: 200px;
-  background-color: rgba(188,55,55,1);
-  border-width: 1px;
-  border-color: rgba(0,0,0,1);
-  width: 375px;
-  flex-direction: column;
-  display: flex;
-  align-self: center;
-  border-style: solid;
-`;

@@ -14,7 +14,6 @@ class UsersController < ApplicationController
       end
 
     def me
-        # @current_user = User.find_by(id: session[:user_id])
         if @current_user
             render json: @current_user
             puts "#{@current_user} auto-logged in!"
@@ -57,12 +56,10 @@ class UsersController < ApplicationController
       end
       if restaurant.votes.length == session[:groupsize] && restaurant.votes.filter{|vote| !vote[:accept]}.empty? #winning condition
         restaurant.update(winner: true)
-        byebug
         session.delete :groupsize
         session.delete :group_id
         return render json: restaurant, status: :accepted
       end
-      byebug
       render json: restaurant.votes
     end
 

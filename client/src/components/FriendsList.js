@@ -16,22 +16,23 @@ export default function FriendsList({invite, friends}){
 const H3 = styled.h3`
     margin: 0px;
     text-align: center;
+    color: #ffe6e6;
+    text-decoration: underline;
 `
 const List = styled.ul`
-    background-color: rgba(188,55,55,1);
     width: 100%
     border-color: rgba(0,0,0,1);
     flex-wrap: wrap;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    border: solid;
     padding: 0px;
 
     li {
         padding: 0px;
         list-style-type: none;
         position: relative;
+        color: #ffe6e6;
         border-bottom: 1px solid;
     }
     input {
@@ -46,7 +47,7 @@ width: 100%;
 align-self: center;
 border-style: solid;
 flex-direction: column;
-background-color: rgba(188,55,55,1);
+background-color: #6B0000;
 border-width: 1px;
 border-color: rgba(0,0,0,1);
 `

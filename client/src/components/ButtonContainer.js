@@ -2,7 +2,7 @@ import styled from "styled-components"
 
 export default function ButtonContainer(props){
     return(
-        <Container>
+        <Container className="ButtonContainer">
             {props.children}
         </Container>
     )

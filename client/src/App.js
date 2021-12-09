@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Login from './components/Login'
 import Home from './components/Home'
-import styled from "styled-components";
 import { Routes, Route } from "react-router-dom";
 import Signup from './components/Signup'
 import Group from './components/Group'
@@ -22,7 +21,7 @@ function App() {
     });
   }, []);
   if (!user) return(
-    <Container>
+    <>
       <Header>Please login or signup!</Header>
       <Routes>
         <Route path="/" element={<Login
@@ -38,27 +37,18 @@ function App() {
           password={password}
           setPassword={setPassword}/>}/>
       </Routes>
-    </Container>
+    </>
   )
 
   return (
-    <Container id="app-container">
-      <Header>Wut Eat?</Header>
+    <>
       <Routes>
         <Route path="/" element={<Home user={user} setUser={setUser}/>}/>
         <Route path="/group" element={<Group user={user}/>}/>
         <Route path="/history" element={<History/>}/>
       </Routes>
-    </Container>
+    </>
   );
 }
 
 export default App;
-
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  border-style: solid;
-  height: 100%;
-`;

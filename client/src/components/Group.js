@@ -4,6 +4,9 @@ import RestaurantVote from './RestaurantVote';
 import Button from "../styles/Button"
 import Friends from './Friends';
 import Input from '../styles/Input';
+import Label from '../styles/Label';
+import LandingForm from '../styles/LandingForm';
+import Header from '../styles/Header';
 
 export default function Group({user}){
     const [location, setLocation] = useState("")
@@ -39,20 +42,21 @@ export default function Group({user}){
     if (!restaurants.length) {
         return(
         <>
+            <Header>Wut Eat?</Header>
             <FormHead>Where are you and who are you eating with?</FormHead>
-            <GroupForm onSubmit={createGroup}>
-                <label htmlFor="location">Address</label>
+            <LandingForm onSubmit={createGroup}>
+                <Label htmlFor="location">Address</Label>
                 <Input id="location" type="text" 
                     value={location}
                     placeholder="Required"
                     onChange={(e)=>setLocation(e.target.value)}/>
-                <label htmlFor="cuisine">Cuisine* </label>
+                <Label htmlFor="cuisine">Cuisine* </Label>
                 <Input id="cuisine" type="text"
                     value={cuisine}
                     placeholder="Optional"
                     onChange={(e)=>setCuisine(e.target.value)}/>
                 <Button type="submit">Create Group</Button>
-            </GroupForm>
+            </LandingForm>
             <Friends invite={invite}/>
         </>
     )} else {
@@ -68,20 +72,10 @@ const FormHead = styled.span`
  font-family: Roboto;
   font-style: normal;
   font-weight: 700;
-  color: rgba(0,0,0,1);
+  color: #ffe6e6;
   font-size: 25px;
   text-align: center;
-  border: double;
+  padding: 1px;
+  margin: 10px;
+  text-shadow: 0 0 10px black;
   `
-const GroupForm = styled.form`
-  height: 100%;
-  background-color: rgba(188,55,55,1);
-  border-width: 1px;
-  border-color: rgba(0,0,0,1);
-  width: 475px;
-  flex-direction: column;
-  display: flex;
-  align-self: center;
-  border-style: solid;
-  justify-content: center;
-`
